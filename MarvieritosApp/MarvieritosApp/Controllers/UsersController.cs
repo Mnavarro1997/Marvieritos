@@ -31,7 +31,7 @@ namespace MarvieritosApp.Controllers
         [HttpPost]
         public IActionResult Add([FromBody] User user)
         {
-            if (!_ecommerceDb.User.Any(p => p.Id_usuario == user.Id_usuario))
+            if (!_ecommerceDb.User.Any(p => p.Id_user == user.Id_user))
             {
                 _ecommerceDb.User.Add(user);
                 _ecommerceDb.SaveChanges();
@@ -39,7 +39,7 @@ namespace MarvieritosApp.Controllers
             }
             else
             {
-                return BadRequest($"Exists a user with id{user.Id_usuario}");
+                return BadRequest($"Exists a user with id{user.Id_user}");
             }
         }
 
@@ -47,9 +47,9 @@ namespace MarvieritosApp.Controllers
         [HttpPut("{id}")]
         public IActionResult Update(int id, [FromBody] User user)
         {
-            if (_ecommerceDb.User.Any(p => p.Id_usuario == id))
+            if (_ecommerceDb.User.Any(p => p.Id_user == id))
             {
-                var UserToUpdate = _ecommerceDb.User.Single(p => p.Id_usuario == id);
+                var UserToUpdate = _ecommerceDb.User.Single(p => p.Id_user == id);
                 _ecommerceDb.User.Remove(UserToUpdate);
                 _ecommerceDb.User.Add(user);
                 _ecommerceDb.SaveChanges();
@@ -65,9 +65,9 @@ namespace MarvieritosApp.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            if (_ecommerceDb.User.Any(p => p.Id_usuario == id))
+            if (_ecommerceDb.User.Any(p => p.Id_user == id))
             {
-                var UserToDelete = _ecommerceDb.User.Single(p => p.Id_usuario == id);
+                var UserToDelete = _ecommerceDb.User.Single(p => p.Id_user == id);
                 _ecommerceDb.User.Remove(UserToDelete);
                 _ecommerceDb.SaveChanges();
                 return Ok();
