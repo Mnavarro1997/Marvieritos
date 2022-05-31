@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "tV/09DxtOpFv5P8eBebSFxjl5bFsprhRdE+bWgHySfEI7wEfDHsVe1HJ/ZaLuWW54SW1k0SHFgwDU83cf1aGhw==",
+  "dgSpecHash": "yMMCjqpI6Nj5xbPb/uIWiNrSBmb+UIgtDDm3juPC/jeEg57NVuhC0CrcIYXzl/BNhtHt7KGnFs9U2YT7x66iLA==",
   "success": true,
   "projectFilePath": "C:\\Users\\G1\\Desktop\\MARVIERITOS\\Marvieritos\\MarvieritosApp\\MarvieritosApp\\MarvieritosApp.csproj",
   "expectedPackageFiles": [
@@ -13,12 +13,12 @@
     "C:\\Users\\G1\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.17\\microsoft.entityframeworkcore.5.0.17.nupkg.sha512",
     "C:\\Users\\G1\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.17\\microsoft.entityframeworkcore.abstractions.5.0.17.nupkg.sha512",
     "C:\\Users\\G1\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.17\\microsoft.entityframeworkcore.analyzers.5.0.17.nupkg.sha512",
-    "C:\\Users\\G1\\.nuget\\packages\\microsoft.entityframeworkcore.design\\5.0.10\\microsoft.entityframeworkcore.design.5.0.10.nupkg.sha512",
+    "C:\\Users\\G1\\.nuget\\packages\\microsoft.entityframeworkcore.design\\5.0.17\\microsoft.entityframeworkcore.design.5.0.17.nupkg.sha512",
     "C:\\Users\\G1\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.17\\microsoft.entityframeworkcore.relational.5.0.17.nupkg.sha512",
     "C:\\Users\\G1\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite\\5.0.10\\microsoft.entityframeworkcore.sqlite.5.0.10.nupkg.sha512",
     "C:\\Users\\G1\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite.core\\5.0.10\\microsoft.entityframeworkcore.sqlite.core.5.0.10.nupkg.sha512",
     "C:\\Users\\G1\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\5.0.17\\microsoft.entityframeworkcore.sqlserver.5.0.17.nupkg.sha512",
-    "C:\\Users\\G1\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\5.0.10\\microsoft.entityframeworkcore.tools.5.0.10.nupkg.sha512",
+    "C:\\Users\\G1\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\5.0.17\\microsoft.entityframeworkcore.tools.5.0.17.nupkg.sha512",
     "C:\\Users\\G1\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\G1\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\G1\\.nuget\\packages\\microsoft.extensions.caching.memory\\5.0.0\\microsoft.extensions.caching.memory.5.0.0.nupkg.sha512",

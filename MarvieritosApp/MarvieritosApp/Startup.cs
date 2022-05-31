@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore; 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -30,7 +30,7 @@ namespace MarvieritosApp
         {
             services.AddControllers();
             services.AddSwaggerGen();
-            services.AddDbContext<EcommerceDb>(o => o.UseSqlite(@"Data Source=.\ecommerceDb1.db"));
+            services.AddDbContext<EcommerceDb>(o => o.UseSqlite(@"Data Source=.\ecommerceDb.db"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
