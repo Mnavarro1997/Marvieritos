@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MarvieritosApp.Migrations
 {
-    public partial class EcommerceDb1 : Migration
+    public partial class InitDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -27,8 +28,9 @@ namespace MarvieritosApp.Migrations
                     Id_user = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: true),
-                    Password = table.Column<string>(type: "TEXT", nullable: true),
-                    Email = table.Column<string>(type: "TEXT", nullable: true),
+                    Password = table.Column<byte[]>(type: "BLOB", nullable: true),
+                    PasswordHash = table.Column<byte[]>(type: "BLOB", nullable: true),
+                    Email = table.Column<string>(type: "TEXT", nullable: false),
                     Date = table.Column<string>(type: "TEXT", nullable: true),
                     Bank_Account = table.Column<string>(type: "TEXT", nullable: true),
                     PhoneNumber = table.Column<int>(type: "INTEGER", nullable: false)
