@@ -40,11 +40,17 @@ namespace MarvieritosApp
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseSwaggerUI(c =>
+            {
+                string baseApiUrl = Configuration.GetSection("BaseApiUrl").Value;
+                c.SwaggerEndpoint(""+baseApiUrl+"/swagger/v1/swagger.json", "My API V1");
+
+            });
 
             app.UseHttpsRedirection();
-
             app.UseSwagger();
             app.UseSwaggerUI();
+
             app.UseRouting();
 
             app.UseAuthorization();
