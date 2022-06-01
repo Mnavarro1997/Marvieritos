@@ -8,7 +8,10 @@ namespace MarvieritosApp.Models
         [Key]
         public int Id_user { get; set; }
         public string Name { get; set; }
-        public string Password { get; set; }
+        public byte[] Password { get; set; }
+        public byte[] PasswordHash { get; set; }
+
+        [Required]
         public string Email { get; set; }
         public string Date { get; set; }
         public string Bank_Account { get; set; }
