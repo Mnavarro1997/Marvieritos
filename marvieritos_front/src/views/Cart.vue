@@ -124,152 +124,43 @@
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
+import cartsServices from '../services/cartsServices';
 
-import api_url from "../utils/api";
 
-export default {
-  name: "Cart",
-
-  components: {},
-  created() {
-    fetch(api_url("/carts/"))
-      .then((result) => result.json())
-      .then((data) => (this.products = data));
+export default{
+  data(){
+    return{
+      cart: null
+    }
   },
-  data() {
-    return {
-      products: [],
-    };
+  mounted(){
+    this.getCart();
+    this.addToCart();
+    this.removeFromCart();
+    this.updateCart();
   },
-  methods: {
-    upgradeQuantity(id, quantity, productId, productName, productPrice) {
-      fetch(api_url("/cart/" + id), {
-        method: "PUT",
-        body: JSON.stringify({
-          productId: productId,
-          productName: productName,
-          quantity: quantity + 1,
-          productPrice: productPrice,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-          // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
+  methods:{
+    getCart(){
+      cartsServices.getCart().then(response => {
+        this.cart = response.data;
+      })
+    },
+    add(){
+      productService.add(this.product).then(response => {
+        this.cart = response.data;
+      })
+    },
+    deleteCarts(){
+      productService.deleteCarts().then(response => {
+        this.cart = response.data;
       });
-      fetch(api_url("/cart/"))
-        .then((result) => result.json())
-        .then((data) => (this.products = data));
     },
-    degradeQuantity(id, quantity, productId, productName, productPrice) {
-      if (quantity > 1) {
-        fetch(api_url("/cart/" + id), {
-          method: "PUT",
-          body: JSON.stringify({
-            productId: productId,
-            productName: productName,
-            quantity: quantity - 1,
-            productPrice: productPrice,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-          },
-        });
-        fetch(api_url("/cart/"))
-          .then((result) => result.json())
-          .then((data) => (this.products = data));
-      } else {
-        fetch(api_url("/cart/" + id), {
-          method: "DELETE",
-          body: JSON.stringify({
-            productId: productId,
-            productName: productName,
-            quantity: quantity,
-            productPrice: productPrice,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-          },
-        });
-        fetch(api_url("/cart/"))
-          .then((result) => result.json())
-          .then((data) => (this.products = data));
+    updateCart(){
+      productService.updateCart(this.product).then(response => {
+        this.cart = response.data;
+        })
       }
-    },
-    removeProduct(id, quantity, productId, productName, productPrice) {
-      fetch(api_url("/cart/" + id), {
-        method: "DELETE",
-        body: JSON.stringify({
-          productId: productId,
-          productName: productName,
-          quantity: quantity,
-          productPrice: productPrice,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-          // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-      });
-      fetch(api_url("/cart/"))
-        .then((result) => result.json())
-        .then((data) => (this.products = data));
-    },
-    totalProduct(productPrice, quantity) {
-      return parseFloat(productPrice) * parseFloat(quantity);
-    },
-    submitOrder() {
-      for (let i = 0; i < this.products.length; i++) {
-        fetch(api_url("/orders/"), {
-          method: "POST",
-          body: JSON.stringify({
-            productId: this.products[i].id,
-            productName: this.products[i].productName,
-            quantity: this.products[i].quantity,
-            productPrice: this.products[i].productPrice,
-            totalProduct:
-              this.products[i].quantity * this.products[i].productPrice,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-          },
-        });
-      }
-      fetch(api_url("/orders/"), {
-        method: "POST",
-        body: JSON.stringify({
-          totalOrder: this.totalCart,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-          // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-      });
-      for(let i = 0; i <= this.products.length+1; i++){
-        fetch(api_url("/cart/" + i), {
-          method: "DELETE",
-          body: JSON.stringify({}),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-      }
-    },
-  },
-  computed: {
-    totalCart: function () {
-      let sum = 0;
-      for (let i = 0; i < this.products.length; i++) {
-        sum +=
-          parseFloat(this.products[i].productPrice) *
-          parseFloat(this.products[i].quantity);
-      }
+  }
+}
 
-      return sum;
-    },
-  },
-};
 </script>
