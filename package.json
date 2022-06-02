@@ -1,0 +1,19 @@
+{
+  "name": "marvieritos",
+  "version": "1.0.0",
+  "description": "TFG-Marvieritos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mnavarro1997/Marvieritos.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mnavarro1997/Marvieritos/issues"
+  },
+  "homepage": "https://github.com/Mnavarro1997/Marvieritos#readme"
+}
