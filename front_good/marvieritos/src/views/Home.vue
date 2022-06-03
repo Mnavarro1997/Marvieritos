@@ -66,15 +66,14 @@
 <script>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
-
 import api_url from "../utils/api";
-
+import Helloworld from "../components/HelloWorld.vue";
 export default {
-  name: "index",
+  name: "Home",
 
   components: {},
   created() {
-    fetch(api_url("/products"))
+    fetch(api_url("https://localhost:44330/api/Products"))
       .then((result) => result.json())
       .then((data) => (this.products = data));
   },
@@ -85,7 +84,7 @@ export default {
   },
   methods: {
     añadirCarrito(productId, productName, productPrice) {
-      fetch(api_url("/cart/"), {
+      fetch(api_url("https://localhost:44330/api/Carts"), {
         method: "POST",
         body: JSON.stringify({
           productId: productId,

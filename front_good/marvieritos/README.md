@@ -1,4 +1,4 @@
-# marvieritos_front
+# marvieritos
 
 ## Project setup
 ```

@@ -1,17 +1,18 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <img alt="Vue logo" src="./assets/logo.png">
+  <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  created(){
+    fetch(("https://localhost:44330/api/Products"))
+  },
+  computed: {
+    isMock() {
+      return process.env.VUE_APP_API_IS_MOCK === "true"
+    }
   }
 }
 </script>
