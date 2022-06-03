@@ -13,8 +13,10 @@ import Product from '@/components/Product.vue';
 
 export default {
   name: "ProductView",
-
-  components: { Product },
+  components:{
+    Product
+  },
+  
   created() {
     fetch("https://localhost:44330/api/Products")
       .then((result) => result.json())

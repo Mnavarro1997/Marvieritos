@@ -1,5 +1,5 @@
 <template>
-<div class="home"  style= "background-color: grey"> 
+<div class="product"  style= "background-color: grey"> 
     <div>
       <span style="color: white; font-size: 30px">
         <b> Productos</b>
