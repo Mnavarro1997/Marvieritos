@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JisdK0T6WtRCFQ+/tYPy+KzAGIWhg7kfw7IhN+VlX2BCFYzK1yVrHB3CNwJRfa5Sfv1u+HurGxs8gG0Ahemscw==",
+  "dgSpecHash": "SpdDvjkNJU6tN5SUnDZZDmbwEAZ7ZCkv/IcM/ed3dP1nZg1Glh6pcNpILp5mqOip1t0M0Z1tQ/gBjZqCuJiUAw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\G1\\Desktop\\MARVIERITOS\\Marvieritos\\MarvieritosApp\\MarvieritosApp\\MarvieritosApp.csproj",
+  "projectFilePath": "C:\\Users\\G1\\OneDrive\\Escritorio\\MARVIERITOS\\Marvieritos\\MarvieritosApp\\MarvieritosApp\\MarvieritosApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\G1\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\G1\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
