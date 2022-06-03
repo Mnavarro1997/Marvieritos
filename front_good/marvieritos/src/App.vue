@@ -1,6 +1,14 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="nav">
+    <router-link to="/home">Home</router-link> |
+      <router-link to="/products">Products</router-link> |
+      <router-link to="/cart">Cart</router-link>
+
+    </div>
+    <h1 v-if="isMock">Working with MOCK data</h1>
+    <router-view/>
 </template>
 
 <script>
