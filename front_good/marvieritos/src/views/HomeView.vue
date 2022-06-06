@@ -1,19 +1,21 @@
 <template>
   <div class="home">
-    <HelloWorld msg="Listado de juegos"/>
-    
+    <HomeComponent msg="Listado de juegos"/>
+        <select name="my_html_select_box">
+          <option selected="yes"> - Selecciona una categoría - </option>
+          <option>RTS - Real-Time Strategy</option>
+          <option>FPS - First Person Shooter</option>
+          <option>MOBA - Multiplayer Online Battle Arena</option>
+          <option>RP - Role-Playing</option>
+        </select>
+    <input type="submit" id="lname" value="Buscar">
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Home from '@/components/Home.vue'
 
 export default {
-  name: 'Home',
-  components: {
-    Home
-  },
 
  data(){
     let orderProduct = async () =>{

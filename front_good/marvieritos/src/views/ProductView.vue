@@ -1,18 +1,17 @@
 <template>
   <div class="home">
-    <Product msg="Welcome to Your Vue.js App"/>
+    <ProductComponent msg="Welcome to Your Vue.js App"/>
     
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Product from '@/components/Product.vue'
+import ProductComponent from '@/components/ProductComponent.vue'
 
 export default {
-  name: 'TodoProduct',
   components: {
-    Product
+    ProductComponent
   },
 
  data(){
@@ -32,7 +31,7 @@ export default {
 
   },
   created() {
-      fetch('http://localhost:44330/product')
+      fetch('https://localhost:44330/api/Products')
         .then(result => result.json())
         .then(data => this.items = data)
     },
@@ -46,9 +45,9 @@ export default {
       this.active.product_drawer = false;
     },
     getProduct(id){
-      let data = fetch(`http://localhost:44330/cart`)
+      let data = fetch(`https://localhost:44330/api/Cart`)
       .then(response=> response.json())
-      .then(data=> data.filter(product=> product.product.id == id))
+      .then(data=> data.filter(product=> product.id == id))
       .then(data=> {
           if(data.length > 0){
               return data[0]
