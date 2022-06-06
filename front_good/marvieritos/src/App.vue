@@ -13,7 +13,8 @@
             </div>
             <div class="hamburger-menu">
                 <h1><router-link to="/">Home</router-link></h1><br/>
-                <h1><router-link to="/about">Carrito</router-link></h1>
+                <h1><router-link to="/cart">Carrito</router-link></h1>
+                <h1><router-link to="/category">Categoría</router-link></h1>
                 <h1><router-link to="/product">Producto</router-link></h1>
                 <input id="menu__toggle" type="checkbox" />
                 <label class="menu__btn" for="menu__toggle">

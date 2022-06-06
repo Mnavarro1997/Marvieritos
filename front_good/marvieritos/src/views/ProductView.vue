@@ -1,7 +1,12 @@
 <template>
   <div class="home">
+      hola <br/>
+      <li v-for="product in products" :key="product.id">
+        <b>{{product.name}}</b>
+      </li>
+         
+      hola2
     <ProductComponent msg="Welcome to Your Vue.js App"/>
-    
   </div>
 </template>
 
@@ -13,28 +18,16 @@ export default {
   components: {
     ProductComponent
   },
-
- data(){
-    let orderProduct = async () =>{
-            return await this.getProduct(this.product.id)
-        }
-    return {
-      items: [],
-      product:null,
-      active: {
-        product_drawer: false
-      },
-      orderProduct: orderProduct(),
-      perPage: 6,
-      currentPage: 1
-    }
-
-  },
   created() {
       fetch('https://localhost:44330/api/Products')
         .then(result => result.json())
-        .then(data => this.items = data)
+        .then(data => this.products = data)
     },
+    data() {
+    return {
+      products: [],
+    };
+  },
   methods: {
     viewProduct(product){
       this.product = product

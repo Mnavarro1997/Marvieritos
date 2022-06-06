@@ -4,7 +4,6 @@
       <span style="color: white; font-size: 30px">
         <b> Productos</b>
       </span>
-      <template>
         <div class="cuerpo" style="margin-top: 20px;">
           <div class="productoYvideo">
               <div class="producto">
@@ -153,7 +152,6 @@
               </button>
           </div>
       </div>
-      </template>
     </div>
   </div>
 </template>

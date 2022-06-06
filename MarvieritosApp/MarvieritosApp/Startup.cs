@@ -32,6 +32,13 @@ namespace MarvieritosApp
             services.AddControllers();
             services.AddSwaggerGen();
             services.AddDbContext<EcommerceDb>(o => o.UseSqlite(@"Data Source=.\ecommerceDb.db"));
+
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +54,7 @@ namespace MarvieritosApp
                 c.SwaggerEndpoint(""+baseApiUrl+"/swagger/v1/swagger.json", "My API V1");
 
             });
+            app.UseCors("MyPolicy");
 
             app.UseHttpsRedirection();
             app.UseSwagger();

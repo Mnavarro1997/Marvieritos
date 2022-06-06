@@ -1,83 +1,46 @@
 <template>
-  <div class="home">
-    <HomeComponent msg="Listado de juegos"/>
-        <select name="my_html_select_box">
-          <option selected="yes"> - Selecciona una categoría - </option>
-          <option>RTS - Real-Time Strategy</option>
-          <option>FPS - First Person Shooter</option>
-          <option>MOBA - Multiplayer Online Battle Arena</option>
-          <option>RP - Role-Playing</option>
-        </select>
-    <input type="submit" id="lname" value="Buscar">
+  <div class="home"  style= "background-color: grey"> 
+    <div>
+      <span style="color: white; font-size: 30px">
+        <b> Productos</b>
+      </span>
+        <div>
+          <section>
+            <ul>
+              <li
+                v-for="category in categories"
+                :key="category.id">
+                <p>
+                  <b>{{ category.name }}</b>
+                </p>
+                <div style="display: flex">
+                  <router-link :to="{ name: 'Category', params: { id: category.id } }">
+                    <b-button>
+                      <b>Detalles</b>
+                    </b-button>
+                  </router-link>
+                </div>
+              </li>
+            </ul>
+          </section>
+        </div>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-
 export default {
 
- data(){
-    let orderProduct = async () =>{
-            return await this.getProduct(this.product.id)
-        }
-    return {
-      items: [],
-      product:null,
-      active: {
-        product_drawer: false
-      },
-      orderProduct: orderProduct(),
-      perPage: 6,
-      currentPage: 1
-    }
-
-  },
+  components: {},
   created() {
-      fetch('http://localhost:44330/products')
-        .then(result => result.json())
-        .then(data => this.items = data)
-    },
-  methods: {
-    viewProduct(product){
-      this.product = product
-      this.active.product_drawer = true;
-      console.log(this.product);
-    },
-    closeProductDrawer(){
-      this.active.product_drawer = false;
-    },
-    getProduct(id){
-      let data = fetch(`http://localhost:44330/cart`)
-      .then(response=> response.json())
-      .then(data=> data.filter(product=> product.product.id == id))
-      .then(data=> {
-          if(data.length > 0){
-              return data[0]
-          }else{
-              return null
-          }
-      })
-      return data
-
-    }
+    fetch('https://localhost:44330/api/Categories')
+      .then((result) => result.json())
+      .then((data) => (this.categories = data));
   },
-  asyncComputed:{
-    async quantity(){
-      let p = await this.getProduct(this.product.id)
-      console.log(p);
-      return p.quantity
-    }       
+  data() {
+    return {
+      categories: [],
+    };
   },
-  computed:{
-    rows() {
-        return this.items.length
-      },
-    actualItems(){
-      return this.items.slice(this.currentPage*6 -6, this.currentPage*6)
-    }
-  }
-
-}
-
+};
 </script>
