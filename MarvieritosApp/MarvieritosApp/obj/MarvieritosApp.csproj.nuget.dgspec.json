@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Niia\\Desktop\\Marvieritos\\MarvieritosApp\\MarvieritosApp\\MarvieritosApp.csproj": {}
+    "C:\\Users\\Admin\\Desktop\\asdasd\\Marvieritos\\MarvieritosApp\\MarvieritosApp\\MarvieritosApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Niia\\Desktop\\Marvieritos\\MarvieritosApp\\MarvieritosApp\\MarvieritosApp.csproj": {
+    "C:\\Users\\Admin\\Desktop\\asdasd\\Marvieritos\\MarvieritosApp\\MarvieritosApp\\MarvieritosApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Niia\\Desktop\\Marvieritos\\MarvieritosApp\\MarvieritosApp\\MarvieritosApp.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\asdasd\\Marvieritos\\MarvieritosApp\\MarvieritosApp\\MarvieritosApp.csproj",
         "projectName": "MarvieritosApp",
-        "projectPath": "C:\\Users\\Niia\\Desktop\\Marvieritos\\MarvieritosApp\\MarvieritosApp\\MarvieritosApp.csproj",
-        "packagesPath": "C:\\Users\\Niia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Niia\\Desktop\\Marvieritos\\MarvieritosApp\\MarvieritosApp\\obj\\",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\asdasd\\Marvieritos\\MarvieritosApp\\MarvieritosApp\\MarvieritosApp.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\asdasd\\Marvieritos\\MarvieritosApp\\MarvieritosApp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Niia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -81,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -12,6 +12,8 @@ namespace MarvieritosApp.DataBase
         public DbSet<Product> Product { get; set; }
 
         public DbSet<User> User { get; set; }
+        public DbSet<Order> Order { get; set; }
+
         public EcommerceDb(DbContextOptions<EcommerceDb> options)
             : base(options)
         {

@@ -1,8 +1,6 @@
 <template>
   <div class="home"> 
     <h1>Novedades</h1>
-
-
     <!--
 
     <article v-if="isGuideVisible(guide)" :key="index" class="post-item post-guide"
@@ -15,14 +13,14 @@
     -->
 
 
-
-
     <div class="novedades">
       <div v-for="product in products" :key="product.id">
-          <div v-if="product.id>15 && product.id < 19" class="novedad">
+          <div v-if="product.id>64 && product.id<69" class="novedad">
             <router-link :to="{ name: 'Product', params: { id: product.id } }">
               <b-button>
-                <img class="imgenNovedad" src="../images/LeagueOfLegends/cup.jpg" alt="">
+                <img class="imgenNovedad" :src="product.urlImg" alt="">
+                
+                 
                 <h2>{{product.name}}</h2>
               </b-button>
             </router-link>

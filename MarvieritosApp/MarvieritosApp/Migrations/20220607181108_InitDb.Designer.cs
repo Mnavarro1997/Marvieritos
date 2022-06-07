@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MarvieritosApp.Migrations
 {
     [DbContext(typeof(EcommerceDb))]
-    [Migration("20220606113440_InitDb")]
+    [Migration("20220607181108_InitDb")]
     partial class InitDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -58,6 +58,17 @@ namespace MarvieritosApp.Migrations
                     b.ToTable("Category");
                 });
 
+            modelBuilder.Entity("MarvieritosApp.Models.Order", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Order");
+                });
+
             modelBuilder.Entity("MarvieritosApp.Models.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -75,6 +86,9 @@ namespace MarvieritosApp.Migrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("UrlImg")
                         .HasColumnType("TEXT");

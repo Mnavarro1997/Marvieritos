@@ -33,9 +33,8 @@
                     removeProduct(
                       product.id,
                       product.quantity,
-                      product.productId,
-                      product.productName,
-                      product.productPrice
+                      product.name,
+                      product.price
                     )
                   "
                   style="
@@ -49,17 +48,16 @@
                 >
                   <b>Eliminar Producto</b>
                 </b-button>
-                <p>{{ product.productName }}</p>
-                <p style="padding: 0px 200px">{{ product.productPrice }} €</p>
+                <p>{{ product.name }}</p>
+                <p style="padding: 0px 200px">{{ product.price }} €</p>
                 <p style="padding-right: 100px">{{ product.quantity }}</p>
                 <b-button
                   @click="
                     upgradeQuantity(
                       product.id,
                       product.quantity,
-                      product.productId,
-                      product.productName,
-                      product.productPrice
+                      product.name,
+                      product.price
                     )
                   "
                   style="
@@ -77,9 +75,8 @@
                     degradeQuantity(
                       product.id,
                       product.quantity,
-                      product.productId,
-                      product.productName,
-                      product.productPrice
+                      product.name,
+                      product.price
                     )
                   "
                   style="
@@ -93,7 +90,7 @@
                   <b>-</b>
                 </b-button>
                 <div style="margin-right: 5px;">
-                  <p>{{totalProduct(product.quantity, product.productPrice)}} €</p>
+                  <p>{{totalProduct(product.quantity, product.price)}} €</p>
                 </div>
               </li>
             </ul>
@@ -124,6 +121,10 @@
 </template>
 
 <script>
+// @ is an alias to /src
+// import HelloWorld from '@/components/HelloWorld.vue'
+
+
 export default {
 
   components: {},
@@ -138,14 +139,14 @@ export default {
     };
   },
   methods: {
-    upgradeQuantity(id, quantity, productId, productName, productPrice) {
+    upgradeQuantity(id, quantity, name, price) {
       fetch('https://localhost:44330/api​/Carts/' + id), {
         method: "PUT",
         body: JSON.stringify({
-          productId: productId,
-          productName: productName,
+          id: id,
+          name: name,
           quantity: quantity + 1,
-          productPrice: productPrice,
+          price: price,
         }),
         headers: {
           "Content-Type": "application/json",
@@ -156,15 +157,15 @@ export default {
         .then((result) => result.json())
         .then((data) => (this.products = data));
     },
-    degradeQuantity(id, quantity, productId, productName, productPrice) {
+    degradeQuantity(id, quantity, name, price) {
       if (quantity > 1) {
-        fetch('https://localhost:44330/api​/Carts/' + id), {
+        fetch("https://localhost:44330/api​/Carts/"+ id), {
           method: "PUT",
           body: JSON.stringify({
-            productId: productId,
-            productName: productName,
-            quantity: quantity - 1,
-            productPrice: productPrice,
+          id: id,
+          name: name,
+          quantity: quantity - 1,
+          price: price,
           }),
           headers: {
             "Content-Type": "application/json",
@@ -178,10 +179,10 @@ export default {
         fetch('https://localhost:44330/api​/Carts/' + id), {
           method: "DELETE",
           body: JSON.stringify({
-            productId: productId,
-            productName: productName,
-            quantity: quantity,
-            productPrice: productPrice,
+          id: id,
+          name: name,
+          quantity: quantity,
+          price: price,
           }),
           headers: {
             "Content-Type": "application/json",
@@ -193,14 +194,14 @@ export default {
           .then((data) => (this.products = data));
       }
     },
-    removeProduct(id, quantity, productId, productName, productPrice) {
-      fetch('https://localhost:44330/api​/Carts/' + id), {
+    removeProduct(id, quantity, name, price) {
+      fetch('https://localhost:44330/api​/Carts/'+ id), {
         method: "DELETE",
         body: JSON.stringify({
-          productId: productId,
-          productName: productName,
-          quantity: quantity,
-          productPrice: productPrice,
+        id: id,
+        name: name,
+        quantity: quantity - 1,
+        price: price,
         }),
         headers: {
           "Content-Type": "application/json",
@@ -211,28 +212,28 @@ export default {
         .then((result) => result.json())
         .then((data) => (this.products = data));
     },
-    totalProduct(productPrice, quantity) {
-      return parseFloat(productPrice) * parseFloat(quantity);
+    totalProduct(price, quantity) {
+      return parseFloat(price) * parseFloat(quantity);
     },
     submitOrder() {
       for (let i = 0; i < this.products.length; i++) {
-        fetch("https://localhost:44330/api​/Carts"), {
+        fetch("https://localhost:44330/api​/Order"), {
           method: "POST",
           body: JSON.stringify({
-            productId: this.products[i].id,
-            productName: this.products[i].productName,
+            id: this.products[i].id,
+            name: this.products[i].name,
             quantity: this.products[i].quantity,
-            productPrice: this.products[i].productPrice,
+            price: this.products[i].price,
             totalProduct:
-              this.products[i].quantity * this.products[i].productPrice,
+              this.products[i].quantity * this.products[i].price,
           }),
           headers: {
             "Content-Type": "application/json",
             // 'Content-Type': 'application/x-www-form-urlencoded',
           },
-        };
+        });
       }
-      fetch("https://localhost:44330/api​/Carts"), {
+      fetch(api_url("/orders/"), {
         method: "POST",
         body: JSON.stringify({
           totalOrder: this.totalCart,
@@ -241,15 +242,15 @@ export default {
           "Content-Type": "application/json",
           // 'Content-Type': 'application/x-www-form-urlencoded',
         },
-      };
+      });
       for(let i = 0; i <= this.products.length+1; i++){
-        fetch("https://localhost:44330/api​/Carts/" + i), {
+        fetch(api_url("/cart/" + i), {
           method: "DELETE",
           body: JSON.stringify({}),
           headers: {
             "Content-Type": "application/json",
           },
-        };
+        });
       }
     },
   },

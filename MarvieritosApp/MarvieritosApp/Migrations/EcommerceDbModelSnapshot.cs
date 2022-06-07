@@ -56,6 +56,17 @@ namespace MarvieritosApp.Migrations
                     b.ToTable("Category");
                 });
 
+            modelBuilder.Entity("MarvieritosApp.Models.Order", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Order");
+                });
+
             modelBuilder.Entity("MarvieritosApp.Models.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -73,6 +84,9 @@ namespace MarvieritosApp.Migrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("UrlImg")
                         .HasColumnType("TEXT");
