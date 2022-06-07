@@ -1,6 +1,22 @@
 <template>
   <div class="home"> 
     <h1>Novedades</h1>
+
+
+    <!--
+
+    <article v-if="isGuideVisible(guide)" :key="index" class="post-item post-guide"
+              :class="[guide.categories.toString().replace(/,/g, ' ')]">
+      <header>
+        <h1 v-text="guide.title.rendered" />
+      </header>
+    </article>
+
+    -->
+
+
+
+
     <div class="novedades">
       <div v-for="category in categories" :key="category.id">
           <div class="novedad">
@@ -30,6 +46,59 @@
           </div>
         </div>
       </div>
+      <hr>
+      <hr>
+      <hr>
+      <div class="row">
+        <div class="column">
+          <div class="categoria">
+            
+              <b-button>
+                <!--
+                <img class="imgenCateroria" v-bind:src="'../images/' + category.id.toString() + '.jpg'">
+                -->
+                <img class="imgenCategoria" src="../images/1.jpg" alt="">
+              </b-button>
+
+          </div>
+        </div>
+        <div class="column">
+          <div class="categoria">
+            
+              <b-button>
+                <!--
+                <img class="imgenCateroria" v-bind:src="'../images/' + category.id.toString() + '.jpg'">
+                -->
+                <img class="imgenCategoria" src="../images/2.jpg" alt="">
+              </b-button>
+
+          </div>
+        </div>
+        <div class="column">
+          <div class="categoria">
+            
+              <b-button>
+                <!--
+                <img class="imgenCateroria" v-bind:src="'../images/' + category.id.toString() + '.jpg'">
+                -->
+                <img class="imgenCategoria" src="../images/3.jpg" alt="">
+              </b-button>
+
+          </div>
+        </div>
+        <div class="column">
+          <div class="categoria">
+            
+              <b-button>
+                <!--
+                <img class="imgenCateroria" v-bind:src="'../images/' + category.id.toString() + '.jpg'">
+                -->
+                <img class="imgenCategoria" src="../images/4.jpg" alt="">
+              </b-button>
+
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -46,6 +115,7 @@ export default {
   data() {
     return {
       categories: [],
+      products: []
     };
   },
 };
@@ -60,6 +130,10 @@ export default {
   justify-content: center;
   width: 60%;
   height: 150px;
+}
+
+.novedad{
+  margin-left: 50px;
 }
 
 .novedad h2{

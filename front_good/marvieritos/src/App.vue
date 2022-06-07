@@ -1,4 +1,7 @@
 <template>
+<body>
+    soy el body
+</body>
   <div id="nav">
       <header>
         <nav id="navArea" style="margin-top: 30px;">
@@ -29,7 +32,11 @@
     </header>
   </div>
   <router-view/>
-  
+  <footer>
+      <br>
+      <br><br><br>
+      Gracias por comprar en Marvier
+  </footer>
 </template>
 
 <style>

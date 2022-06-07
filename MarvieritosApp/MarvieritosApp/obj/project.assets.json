@@ -6314,11 +6314,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Niia\\Desktop\\asdasda\\Marvieritos\\MarvieritosApp\\MarvieritosApp\\MarvieritosApp.csproj",
+      "projectUniqueName": "C:\\Users\\Niia\\Desktop\\Marvieritos\\MarvieritosApp\\MarvieritosApp\\MarvieritosApp.csproj",
       "projectName": "MarvieritosApp",
-      "projectPath": "C:\\Users\\Niia\\Desktop\\asdasda\\Marvieritos\\MarvieritosApp\\MarvieritosApp\\MarvieritosApp.csproj",
+      "projectPath": "C:\\Users\\Niia\\Desktop\\Marvieritos\\MarvieritosApp\\MarvieritosApp\\MarvieritosApp.csproj",
       "packagesPath": "C:\\Users\\Niia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Niia\\Desktop\\asdasda\\Marvieritos\\MarvieritosApp\\MarvieritosApp\\obj\\",
+      "outputPath": "C:\\Users\\Niia\\Desktop\\Marvieritos\\MarvieritosApp\\MarvieritosApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Niia\\AppData\\Roaming\\NuGet\\NuGet.Config",
