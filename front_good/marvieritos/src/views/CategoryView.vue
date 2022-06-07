@@ -3,8 +3,8 @@
     <div class="listadoProducto">
       <div class="producto" v-for="product in products" :key="product.categoryId">
         <div class="imgProducto">
-          <img :src="'product.urlImg'" alt="">
-          <img src="../images/LeagueOfLegends/camiseta.jpg" alt="">
+          <img v-bind:src="product.urlImg">
+          
         </div>
         <div class="datosProducto">
           <h1>{{product.name}}</h1><br/>

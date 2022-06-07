@@ -1,10 +1,22 @@
 <template>
   <div class="home">
       hola <br/>
+        <!--
+        <img v-bind:src="product.urlImg">
+        -->
 
-        
 
+
+         <div class="column" v-for="product in products" :key="product.id">
          
+          <img v-bind:src='products[2].urlImg' alt="">
+
+         </div>
+
+
+
+
+
       hola2
     <div class="product"  style= "background-color: grey"> 
     <div>
@@ -29,10 +41,9 @@
                       </div>
                       <div>
                           <div class="nombreFigura">
-                              <h2>Personaje</h2>
-                              <h3>Katarina</h3>
+                              <h3>{{products[0].name}}</h3>
                               <h2>Precio</h2>
-                              <h3>80€</h3>
+                              <h3>{{products[0].price}} €</h3>
                           </div>
                       </div>
                   </div>
@@ -176,6 +187,7 @@ export default {
     data() {
     return {
       products: [],
+      data: []
     };
   },
   methods: {
