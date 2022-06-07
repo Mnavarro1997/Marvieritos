@@ -1,29 +1,21 @@
 <template>
-  <div class="home"  style= "background-color: grey"> 
+  <div class="home"> 
+    <div class="novedades">
+      
+    </div>
     <div>
-      <span style="color: white; font-size: 30px">
-        <b> Productos</b>
-      </span>
-        <div>
-          <section>
-            <ul>
-              <li
-                v-for="category in categories"
-                :key="category.id">
-                <p>
-                  <b>{{ category.name }}</b>
-                </p>
-                <div style="display: flex">
-                  <router-link :to="{ name: 'Category', params: { id: category.id } }">
-                    <b-button>
-                      <b>Detalles</b>
-                    </b-button>
-                  </router-link>
-                </div>
-              </li>
-            </ul>
-          </section>
+      <h2>Listado de categorías</h2>
+      <div class="listaCategorias"
+        v-for="category in categories"
+        :key="category.id">
+        <div class="categoria">
+          <router-link :to="{ name: 'Category', params: { id: category.id } }">
+            <b-button>
+              <h2>{{ category.name }}</h2>
+            </b-button>
+          </router-link>
         </div>
+      </div>
     </div>
   </div>
 </template>
@@ -44,3 +36,19 @@ export default {
   },
 };
 </script>
+
+<style>
+.listaCategorias{
+  margin: 0 auto;
+  width: 20%;
+}
+
+.categoria{
+  height: 30px;
+  margin-top: 15px;
+}
+
+.categoria h2{
+  color: black;
+}
+</style>

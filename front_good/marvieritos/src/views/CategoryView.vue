@@ -1,11 +1,22 @@
 <template>
   <div class="home">
-      hola <br/>
-      <li v-for="product in products" :key="product.categoryId">
-        <b>{{product.name}}</b>
-      </li>
-         
-      hola2
+    <div class="listadoProducto">
+      <div class="producto" v-for="product in products" :key="product.categoryId">
+        <div class="imgProducto">
+          <img :src="'product.urlImg'" alt="">
+          <img src="../images/LeagueOfLegends/camiseta.jpg" alt="">
+        </div>
+        <div class="datosProducto">
+          <h1>{{product.name}}</h1><br/>
+          <h2>{{product.price}}€</h2>
+          <router-link :to="{ name: 'Product', params: { id: product.id } }">
+            <b-button class="botonDetalles">
+              Detalles
+            </b-button>
+          </router-link>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -21,6 +32,7 @@ export default {
   data() {
     return {
       categories: [],
+      products: []
     };
   },
   methods: {
@@ -32,3 +44,25 @@ export default {
   },
 };
 </script>
+
+<style>
+.listadoProducto{
+  margin: 0 auto;
+  text-align: left;
+  width: 50%;
+}
+
+.producto{
+  margin-top: 15px;
+  display: flex;
+}
+
+.datosProducto{
+  margin: auto;
+  text-align: center;
+}
+
+.botonDetalles{
+  color: black;
+}
+</style>
