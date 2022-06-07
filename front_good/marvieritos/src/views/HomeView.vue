@@ -4,6 +4,9 @@
       
     </div>
     <div>
+      <div class = "banner">
+        Ultimas novedades!
+      </div>
       <h2>Listado de categorías</h2>
       <div class="listaCategorias"
         v-for="category in categories"
@@ -38,6 +41,14 @@ export default {
 </script>
 
 <style>
+.banner{
+  background-color: #e08181;
+  padding: 20px;
+  text-align: center;
+  font-size: 30px;
+  width: auto;
+  height: 50px;
+}
 .listaCategorias{
   margin: 0 auto;
   width: 20%;
