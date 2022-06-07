@@ -9,7 +9,16 @@
         <div class="datosProducto">
           <h1>{{product.name}}</h1><br/>
           <h2>{{product.price}}€</h2>
-          <router-link :to="{ name: 'Product', params: { id: product.id } }">
+          <router-link :to="{ name: 'Carts' }">
+          <b-button
+                    @click="anadirCarrito(product.id, product.name, product.price)"
+                    style="
+                      width: 40%;
+                      margin-left: 13%;
+                      background-color: purple;
+                      color: white;">
+                    <b>Añadir</b>
+                  </b-button>
             <b-button class="botonDetalles">
               Detalles
             </b-button>
@@ -40,10 +49,25 @@ export default {
       fetch('https://localhost:44330/api/Products/category/' + categoryId)
         .then((result) => result.json())
         .then((data) => (this.products = data));
+    },
+    anadirCarrito(id, name, price) {
+      fetch("https://localhost:44330/api​/Carts"), {
+        method: "POST",
+        body: JSON.stringify({
+          id: id,
+          name: name,
+          price: price,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      };
     }
   },
 };
 </script>
+
 
 <style>
 .listadoProducto{

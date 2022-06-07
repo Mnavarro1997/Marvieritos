@@ -18,12 +18,12 @@
 
 
     <div class="novedades">
-      <div v-for="category in categories" :key="category.id">
-          <div class="novedad">
-            <router-link :to="{ name: 'Category', params: { id: category.id } }">
+      <div v-for="product in products" :key="product.id">
+          <div v-if="product.id>15 && product.id < 19" class="novedad">
+            <router-link :to="{ name: 'Product', params: { id: product.id } }">
               <b-button>
                 <img class="imgenNovedad" src="../images/LeagueOfLegends/cup.jpg" alt="">
-                <h2>{{category.name}}</h2>
+                <h2>{{product.name}}</h2>
               </b-button>
             </router-link>
           </div>
@@ -110,7 +110,10 @@ export default {
   created() {
     fetch('https://localhost:44330/api/Categories')
       .then((result) => result.json())
-      .then((data) => (this.categories = data));
+      .then((data) => (this.categories = data)),
+    fetch('https://localhost:44330/api/Products')
+      .then((result) => result.json())
+      .then((data) => (this.products = data))
   },
   data() {
     return {
