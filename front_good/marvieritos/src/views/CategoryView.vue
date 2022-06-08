@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    
     <div class="listadoProducto">
       <div class="producto" v-for="product in products" :key="product.categoryId">
         <div class="imgProducto">

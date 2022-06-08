@@ -1,7 +1,4 @@
 <template>
-<body>
-    soy el body
-</body>
   <div id="nav">
       <header>
         <nav id="navArea" style="margin-top: 30px;">
@@ -16,7 +13,7 @@
             </div>
             <div class="hamburger-menu">
                 <h1><router-link to="/">Home</router-link></h1>
-                <input id="menu__toggle" type="checkbox" />
+                <input id="menu__toggle" type="checkbox">
                 <label class="menu__btn" for="menu__toggle">
                     <span></span>
                     </label>

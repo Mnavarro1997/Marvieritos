@@ -231,9 +231,9 @@ export default {
             "Content-Type": "application/json",
             // 'Content-Type': 'application/x-www-form-urlencoded',
           },
-        });
+        };
       }
-      fetch(api_url("/orders/"), {
+      fetch("https://localhost:44330/api​/Order"), {
         method: "POST",
         body: JSON.stringify({
           totalOrder: this.totalCart,
@@ -242,15 +242,15 @@ export default {
           "Content-Type": "application/json",
           // 'Content-Type': 'application/x-www-form-urlencoded',
         },
-      });
+      };
       for(let i = 0; i <= this.products.length+1; i++){
-        fetch(api_url("/cart/" + i), {
+        fetch("https://localhost:44330/api​/Cart" + i), {
           method: "DELETE",
           body: JSON.stringify({}),
           headers: {
             "Content-Type": "application/json",
           },
-        });
+        };
       }
     },
   },

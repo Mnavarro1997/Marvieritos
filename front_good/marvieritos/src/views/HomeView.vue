@@ -1,6 +1,6 @@
 <template>
   <div class="home"> 
-    <h1>Novedades</h1>
+    <h1>♥ Novedades ♥</h1>
     <!--
 
     <article v-if="isGuideVisible(guide)" :key="index" class="post-item post-guide"
@@ -15,13 +15,11 @@
 
     <div class="novedades">
       <div v-for="product in products" :key="product.id">
-          <div v-if="product.id>64 && product.id<69" class="novedad">
+          <div v-if="product.id>0 && product.id<6" class="novedad">
             <router-link :to="{ name: 'Product', params: { id: product.id } }">
               <b-button>
                 <img class="imgenNovedad" :src="product.urlImg" alt="">
-                
-                 
-                <h2>{{product.name}}</h2>
+                <p><b>{{product.name}} - {{product.price}}€</b></p>
               </b-button>
             </router-link>
           </div>
@@ -38,62 +36,9 @@
                 <!--
                 <img class="imgenCateroria" v-bind:src="'../images/' + category.id.toString() + '.jpg'">
                 -->
-                <img class="imgenCategoria" src="../images/1.jpg" alt="">
+                <img class="imgenCategoria" :src="category.description" alt="">
               </b-button>
             </router-link>
-          </div>
-        </div>
-      </div>
-      <hr>
-      <hr>
-      <hr>
-      <div class="row">
-        <div class="column">
-          <div class="categoria">
-            
-              <b-button>
-                <!--
-                <img class="imgenCateroria" v-bind:src="'../images/' + category.id.toString() + '.jpg'">
-                -->
-                <img class="imgenCategoria" src="../images/1.jpg" alt="">
-              </b-button>
-
-          </div>
-        </div>
-        <div class="column">
-          <div class="categoria">
-            
-              <b-button>
-                <!--
-                <img class="imgenCateroria" v-bind:src="'../images/' + category.id.toString() + '.jpg'">
-                -->
-                <img class="imgenCategoria" src="../images/2.jpg" alt="">
-              </b-button>
-
-          </div>
-        </div>
-        <div class="column">
-          <div class="categoria">
-            
-              <b-button>
-                <!--
-                <img class="imgenCateroria" v-bind:src="'../images/' + category.id.toString() + '.jpg'">
-                -->
-                <img class="imgenCategoria" src="../images/3.jpg" alt="">
-              </b-button>
-
-          </div>
-        </div>
-        <div class="column">
-          <div class="categoria">
-            
-              <b-button>
-                <!--
-                <img class="imgenCateroria" v-bind:src="'../images/' + category.id.toString() + '.jpg'">
-                -->
-                <img class="imgenCategoria" src="../images/4.jpg" alt="">
-              </b-button>
-
           </div>
         </div>
       </div>
@@ -137,8 +82,10 @@ export default {
   margin-left: 50px;
 }
 
-.novedad h2{
+.novedad p{
   color: black;
+  font-size: 17px;
+
 }
 
 .imgenNovedad{
