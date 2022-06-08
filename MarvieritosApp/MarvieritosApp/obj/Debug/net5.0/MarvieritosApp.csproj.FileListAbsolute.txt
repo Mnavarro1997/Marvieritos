@@ -497,3 +497,4 @@ C:\Users\Admin\Desktop\asdasd\Marvieritos\MarvieritosApp\MarvieritosApp\obj\Debu
 C:\Users\Admin\Desktop\asdasd\Marvieritos\MarvieritosApp\MarvieritosApp\obj\Debug\net5.0\ref\MarvieritosApp.dll
 C:\Users\Admin\Desktop\asdasd\Marvieritos\MarvieritosApp\MarvieritosApp\obj\Debug\net5.0\MarvieritosApp.pdb
 C:\Users\Admin\Desktop\asdasd\Marvieritos\MarvieritosApp\MarvieritosApp\obj\Debug\net5.0\MarvieritosApp.genruntimeconfig.cache
+C:\Users\G1\OneDrive\Escritorio\MARVIERITOS\Marvieritos\Marvieritos\MarvieritosApp\MarvieritosApp\bin\Debug\net5.0\MarvieritosApp.StaticWebAssets.xml

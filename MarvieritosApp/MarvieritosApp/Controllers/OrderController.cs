@@ -29,17 +29,17 @@ namespace MarvieritosApp.Controllers
         [HttpGet("{id}")]
         public ActionResult GetOrderById(int id)
         {
-            if (_ecommerceDb.Order.Any(x => x.id == id))
-                return Ok(_ecommerceDb.Order.FirstOrDefault(x => x.id == id));
+            if (_ecommerceDb.Order.Any(x => x.Id == id))
+                return Ok(_ecommerceDb.Order.FirstOrDefault(x => x.Id == id));
             else
                 return NoContent();
         }
 
         // POST api/<ProductsController>
-        [HttpPost]
+        [HttpPost("{id}")]
         public IActionResult Add([FromBody] Order order)
         {
-            if (!_ecommerceDb.Order.Any(p => p.id == order.id))
+            if (!_ecommerceDb.Order.Any(p => p.Id == order.Id))
             {
                 _ecommerceDb.Order.Add(order);
                 _ecommerceDb.SaveChanges();
@@ -47,7 +47,7 @@ namespace MarvieritosApp.Controllers
             }
             else
             {
-                return BadRequest($"Exists a order with id{order.id}");
+                return BadRequest($"Exists a order with id{order.Id}");
             }
         }
 
@@ -55,9 +55,9 @@ namespace MarvieritosApp.Controllers
         [HttpPut("{id}")]
         public IActionResult Update(int id, [FromBody] Order order)
         {
-            if (_ecommerceDb.Order.Any(p => p.id == id))
+            if (_ecommerceDb.Order.Any(p => p.Id == id))
             {
-                var OrderToUpdate = _ecommerceDb.Order.Single(p => p.id == id);
+                var OrderToUpdate = _ecommerceDb.Order.Single(p => p.Id == id);
                 _ecommerceDb.Order.Remove(OrderToUpdate);
                 _ecommerceDb.Order.Add(order);
                 _ecommerceDb.SaveChanges();
@@ -73,9 +73,9 @@ namespace MarvieritosApp.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            if (_ecommerceDb.Order.Any(p => p.id == id))
+            if (_ecommerceDb.Order.Any(p => p.Id == id))
             {
-                var OrderToDelete = _ecommerceDb.Order.Single(p => p.id == id);
+                var OrderToDelete = _ecommerceDb.Order.Single(p => p.Id == id);
                 _ecommerceDb.Order.Remove(OrderToDelete);
                 _ecommerceDb.SaveChanges();
                 return Ok();

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MarvieritosApp.Migrations
 {
     [DbContext(typeof(EcommerceDb))]
-    [Migration("20220607181108_InitDb")]
+    [Migration("20220608130523_InitDb")]
     partial class InitDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -60,11 +60,23 @@ namespace MarvieritosApp.Migrations
 
             modelBuilder.Entity("MarvieritosApp.Models.Order", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("id");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId")
+                        .IsUnique();
 
                     b.ToTable("Order");
                 });
@@ -141,6 +153,17 @@ namespace MarvieritosApp.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("MarvieritosApp.Models.Order", b =>
+                {
+                    b.HasOne("MarvieritosApp.Models.Product", "Product")
+                        .WithOne("Order")
+                        .HasForeignKey("MarvieritosApp.Models.Order", "ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("MarvieritosApp.Models.Product", b =>
                 {
                     b.HasOne("MarvieritosApp.Models.Category", "Category")
@@ -155,6 +178,11 @@ namespace MarvieritosApp.Migrations
             modelBuilder.Entity("MarvieritosApp.Models.Category", b =>
                 {
                     b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("MarvieritosApp.Models.Product", b =>
+                {
+                    b.Navigation("Order");
                 });
 #pragma warning restore 612, 618
         }
