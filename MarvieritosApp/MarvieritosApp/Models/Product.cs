@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace MarvieritosApp.Models
 {
@@ -18,7 +19,7 @@ namespace MarvieritosApp.Models
         public int Quantity { get; set; }
 
         [JsonIgnore]
-        public Category Category { get; set; }
-        //public Order Order { get; set; }
+        public ICollection<Category> Category { get; set; }
+        public ICollection<Order> Order { get; set; }
     }
 }

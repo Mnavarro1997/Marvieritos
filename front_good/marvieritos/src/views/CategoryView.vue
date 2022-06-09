@@ -6,7 +6,6 @@
             <div class="wrapper">
               <div>
                 <div class="divImagen" ng-repeat="a in modules">
-                  <img class="imgProducto imgPro" :src="product.urlImg" />
                   <div class="overlay">
                       <div class="carrusel" style="display: flex">
                           <img class="imgProductoHover" :src="product.urlImg" />
@@ -15,18 +14,15 @@
                 </div>
               </div>
             <div>
-              <div class="nombreFigura">
-                <h3>{{products.name}}</h3>
-                <h2>Precio</h2>
-                <h3>{{products.price}} €</h3>
-                </div>
             </div>
           </div>
           <div class="divVerProductos">
             <router-link :to="{ name: 'Product', params: { id: product.id } }">
               <div class="comprar">
                 <b-button class="boton">
-                  <h1>Ver productos</h1>
+                  <h1>Detalles </h1>
+                  <img class="imgenNovedad" :src="product.urlImg" alt="">
+                <p><b>{{product.name}} - {{product.price}}€</b></p>
                 </b-button>
               </div>
             </router-link>  

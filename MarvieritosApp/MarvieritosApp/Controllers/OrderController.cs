@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace MarvieritosApp.Controllers
 {
+    [Route("api/[controller]")]
     public class OrderController : ControllerBase
     {
         private readonly EcommerceDb _ecommerceDb;
@@ -36,7 +37,7 @@ namespace MarvieritosApp.Controllers
         }
 
         // POST api/<ProductsController>
-        [HttpPost("{id}")]
+        [HttpPost]
         public IActionResult Add([FromBody] Order order)
         {
             if (!_ecommerceDb.Order.Any(p => p.Id == order.Id))

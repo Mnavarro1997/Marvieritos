@@ -14,6 +14,6 @@ namespace MarvieritosApp.Models
         public string Description { get; set; }
 
         [JsonIgnore]
-        public IEnumerable<Product> Products { get; set; }
+        public ICollection<Product> Products { get; set; }
     }
 }

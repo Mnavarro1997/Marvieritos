@@ -15,6 +15,6 @@ namespace MarvieritosApp.Models
 
 
         [JsonIgnore]
-        public Product Product{ get; set; }
+        public ICollection<Product> Product { get; set; }
     }
 }
