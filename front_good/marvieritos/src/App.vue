@@ -33,7 +33,7 @@
   <footer>
       <br>
       <br><br><br>
-      Gracias por comprar en Marvier
+      https://www.instagram.com/marvier.sa/ == link de IG
   </footer>
 </template>
 
