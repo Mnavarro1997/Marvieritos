@@ -2,8 +2,7 @@
   <div class="home">
 
     <div class='rowListProducts'>
-      <div class="columnaListProducts"
-        v-for="product in products" :key="product.id">
+      <div class="columnaListProducts" v-for="product in products" :key="product.id" v-on:click="editar(product.id)">
         <div class="divEachProduct">
           <img class="imgenCategoriaa" :src="product.urlImg" alt="">
           <p><b>{{product.name}} - {{product.price}}€</b></p>
@@ -39,6 +38,9 @@ export default {
     };
   },
   methods: {
+    editar(id){
+      this.$router.push('/product/' + id);
+    },
     viewProduct(product){
       this.product = product
       this.active.product_drawer = true;

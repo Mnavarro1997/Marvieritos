@@ -1,4 +1,10 @@
 <template>
+
+hola majo
+
+<!--
+
+
   <div class="home">      
     <div class="product"> 
         <div>
@@ -157,12 +163,43 @@
     </div>
   </div>
   </div>
+  -->
+<br>
+    <div v-if="product">
+        <h1>{{product.name}}</h1>
+        <h1>{{product.price}}</h1>
+        <img :src="product.urlImg" alt="">
+    </div>
+  adios
 </template>
 
 <script>
 
-
+//import axios from 'axios';
 export default {
+    props: ['id'],
+    data(){
+        return{
+            product: null
+        }
+    },
+    mounted(){
+        fetch("https://localhost:44330/api/Products/" + this.id)
+        .then(res => res.json())
+        .then(data => this.product = data)
+
+        
+    }
+
+}
+
+</script>
+
+<!--
+
+
+
+
   created() {
       fetch('https://localhost:44330/api/Products')
         .then(result => result.json())
@@ -214,9 +251,28 @@ export default {
     }
   }
 
-}
+-->
 
-</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <style>
 body {
     font-family: 'New Super Mario Font U', sans-serif;
