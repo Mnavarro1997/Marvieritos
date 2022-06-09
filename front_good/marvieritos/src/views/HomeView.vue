@@ -1,18 +1,6 @@
 <template>
   <div class="home"> 
     <h1>♥ Novedades ♥</h1>
-    <!--
-
-    <article v-if="isGuideVisible(guide)" :key="index" class="post-item post-guide"
-              :class="[guide.categories.toString().replace(/,/g, ' ')]">
-      <header>
-        <h1 v-text="guide.title.rendered" />
-      </header>
-    </article>
-
-    -->
-
-
     <div class="novedades">
       <div v-for="product in products" :key="product.id">
           <div v-if="product.id>0 && product.id<6" class="novedad">
@@ -25,20 +13,23 @@
           </div>
       </div>
     </div>
+    <div class="divVerProductos">
+      <router-link :to="{ name: 'Category'}">
+      <div class="comprar">
+        <b-button class="boton">
+          <h1>Ver productos</h1>
+        </b-button>
+      </div>
+    </router-link>  
+    </div>
+      
     <div>
       <div class="row">
         <div class="column"
           v-for="category in categories"
           :key="category.id">
           <div class="categoria">
-            <router-link :to="{ name: 'Category', params: { id: category.id } }">
-              <b-button>
-                <!--
-                <img class="imgenCateroria" v-bind:src="'../images/' + category.id.toString() + '.jpg'">
-                -->
-                <img class="imgenCategoria" :src="category.description" alt="">
-              </b-button>
-            </router-link>
+            <img class="imgenCategoria" :src="category.description" alt="">
           </div>
         </div>
       </div>
@@ -68,6 +59,40 @@ export default {
 </script>
 
 <style>
+.comprar {
+  width: 210px;
+  height: 56px;
+  margin: 0 auto;
+  background-image: url('../images/fondoBotonLadrillos.jpg');
+  text-align: center;
+}
+
+.boton {
+  font-family: 'New Super Mario Font U', sans-serif;
+  color: rgb(0, 0, 0);
+  text-shadow: 3px 0 0 rgb(255, 255, 255), -3px 0 0 rgb(255, 255, 255), 0 3px 0 rgb(255, 255, 255), 0 -3px 0 rgb(255, 255, 255), 2px 2px rgb(255, 255, 255), -2px -2px 0 rgb(255, 255, 255), 2px -2px 0 rgb(255, 255, 255), -2px 2px 0 rgb(255, 255, 255);
+  font-size: 12px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  vertical-align: middle;
+  line-height: 56px;
+}
+
+
+
+
+
+
+
+
+.divVerProductos{
+  padding-top: 50px;
+}
+
+.spanVerProductos{
+  color: black;
+}
+
 .novedades{
   display: flex;
   margin: 0 auto;

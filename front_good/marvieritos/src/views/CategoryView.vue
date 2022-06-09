@@ -1,8 +1,44 @@
 <template>
   <div class="home">
-    
+    <div class="row">
+        <div class="column" v-for="product in products" :key="product.id">
+          <div class="producto">
+            <div class="wrapper">
+              <div>
+                <div class="divImagen" ng-repeat="a in modules">
+                  <img class="imgProducto imgPro" :src="product.urlImg" />
+                  <div class="overlay">
+                      <div class="carrusel" style="display: flex">
+                          <img class="imgProductoHover" :src="product.urlImg" />
+                      </div>
+                  </div>
+                </div>
+              </div>
+            <div>
+              <div class="nombreFigura">
+                <h3>{{products.name}}</h3>
+                <h2>Precio</h2>
+                <h3>{{products.price}} €</h3>
+                </div>
+            </div>
+          </div>
+          <div class="divVerProductos">
+            <router-link :to="{ name: 'Product', params: { id: product.id } }">
+              <div class="comprar">
+                <b-button class="boton">
+                  <h1>Ver productos</h1>
+                </b-button>
+              </div>
+            </router-link>  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+      <!--
     <div class="listadoProducto">
-      <div class="producto" v-for="product in products" :key="product.categoryId">
+      <div class="producto" v-for="product in products" :key="product.id">
         <div class="imgProducto">
           <img v-bind:src="product.urlImg">
           
@@ -19,7 +55,7 @@
                       background-color: purple;
                       color: white;">
                     <b>Añadir</b>
-                  </b-button>
+            </b-button>
             <b-button class="botonDetalles">
               Detalles
             </b-button>
@@ -27,50 +63,84 @@
         </div>
       </div>
     </div>
-  </div>
-</template>
+    -->
+
 
 <script>
 
 export default {
   created() {
-    this.getCategoryById(this.$route.params.id);
-  },
-  beforeRouteUpdate(to) {
-    this.getCategoryById(to.params.id);
-  },
-  data() {
+      fetch('https://localhost:44330/api/Products')
+        .then(result => result.json())
+        .then(data => this.products = data)
+    },
+    data() {
     return {
-      categories: [],
-      products: []
+      products: [],
+      data: []
     };
   },
   methods: {
-    getCategoryById(categoryId) {
-      fetch('https://localhost:44330/api/Products/category/' + categoryId)
-        .then((result) => result.json())
-        .then((data) => (this.products = data));
+    viewProduct(product){
+      this.product = product
+      this.active.product_drawer = true;
+      console.log(this.product);
     },
-    anadirCarrito(id, name, price) {
-      fetch("https://localhost:44330/api​/Carts"), {
-        method: "POST",
-        body: JSON.stringify({
-          id: id,
-          name: name,
-          price: price,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-          // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-      };
+    closeProductDrawer(){
+      this.active.product_drawer = false;
+    },
+    getProduct(id){
+      let data = fetch('https://localhost:44330/api/Products/' + id)
+      .then(response=> response.json())
+      .then(data=> data.filter(product=> product.id == id))
+      .then(data=> {
+          if(data.length > 0){
+              return data[0]
+          }else{
+              return null
+          }
+      })
+      return data
+
     }
   },
-};
+  asyncComputed:{
+    async quantity(){
+      let p = await this.getProduct(this.product.id)
+      console.log(p);
+      return p.quantity
+    }       
+  },
+  computed:{
+    rows() {
+        return this.items.length
+      },
+    actualItems(){
+      return this.items.slice(this.currentPage*6 -6, this.currentPage*6)
+    }
+  }
+
+}
 </script>
 
 
 <style>
+.column {
+  float: left;
+  margin-left: 40px;
+  width: 30%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.cositaimg{
+  height: 100px;
+}
 .listadoProducto{
   margin: 0 auto;
   text-align: left;

@@ -13,6 +13,7 @@
             </div>
             <div class="hamburger-menu">
                 <h1><router-link to="/">Home</router-link></h1>
+                <router-link :to="{ name: 'Home'}">Home2</router-link>
                 <input id="menu__toggle" type="checkbox">
                 <label class="menu__btn" for="menu__toggle">
                     <span></span>

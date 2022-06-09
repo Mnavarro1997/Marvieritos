@@ -19,6 +19,6 @@ namespace MarvieritosApp.Models
 
         [JsonIgnore]
         public Category Category { get; set; }
-        public Order Order { get; set; }
+        //public Order Order { get; set; }
     }
 }

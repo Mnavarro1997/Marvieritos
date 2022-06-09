@@ -1,18 +1,7 @@
 <template>
   <div class="home">
-      hola <br/>
-        <!--
-        <img v-bind:src="product.urlImg">
-        -->
-
-
-
-         <div v-for="product in products" :key="product.id">
-         
-          <img v-bind:src='products[2].urlImg' alt="">
-
-         </div>
-<h1>fin imagen</h1>
+      sdafdsañklfnajsdkfnjkasdfbnkjsadfbdsahjfbdashjbfas
+      
     <div class="product"  style= "background-color: grey"> 
     <div>
       <span style="color: white; font-size: 30px">
@@ -36,9 +25,9 @@
                       </div>
                       <div>
                           <div class="nombreFigura">
-                              <h3>{{products[0].name}}</h3>
+                              <h3>{{products.name}}</h3>
                               <h2>Precio</h2>
-                              <h3>{{products[0].price}} €</h3>
+                              <h3>{{products.price}} €</h3>
                           </div>
                       </div>
                   </div>
