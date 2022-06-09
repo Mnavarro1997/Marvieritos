@@ -14,13 +14,14 @@
       </div>
     </div>
     <div class="divVerProductos">
-      <router-link :to="{ name: 'Category'}">
+      
         <div class="comprar">
+          <router-link :to="{ name: 'Category'}">
           <b-button class="boton">
             <h1>Ver productos</h1>
           </b-button>
-        </div>
-      </router-link>  
+          </router-link>
+        </div> 
     </div>
 
     <div class='rowa'>
@@ -28,7 +29,9 @@
         v-for="category in categories"
         :key="category.id">
         <div class="hola">
+          <router-link :to="{ name: 'Category'}">
           <img class="imgenCategoria" :src="category.description" alt="">
+          </router-link>
         </div>
       </div>
     </div>

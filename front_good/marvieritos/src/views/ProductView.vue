@@ -1,70 +1,22 @@
 <template>
-
-hola majo
-
-<!--
-
-
-  <div class="home">      
-    <div class="product"> 
-        <div>
-            <div class="column" v-for="product in products" :key="product.id">
-                <h3>{{product.name}}</h3>
-                <h2>Precio</h2>
-                <h3>{{product.price}} €</h3>
+  <div class="home" >
+        <div class="productito" v-if="product" style="display: flex;">
+          <img class="imgenProductito" :src="product.urlImg" alt="">
+          <div class="datosProductito">
+            <h1>{{product.name}}</h1><br>
+            <h2>{{product.price}}€</h2><br>
+            <div class="descripcionProductito">
+                {{product.description}}
             </div>
-            <div class="cuerpo">
-                <div class="productoYvideo">
-                    <div class="producto">
-                        <div class="wrapper">
-                            <div>
-                                <div class="divImagen" ng-repeat="a in modules">
-                                    <img class="imgProducto imgPro" src="../images/LeagueOfLegends/figuraA.jpg" />
-                                    <div class="overlay">
-                                        <div class="carrusel" style="display: flex">
-                                            <img class="imgProductoHover" src="../images/LeagueOfLegends/figuraA.jpg" />
-                                            <img class="imgProductoHover" src="../images/LeagueOfLegends/figuraB.jpg" />
-                                            <img class="imgProductoHover" src="../images/LeagueOfLegends/figuraC.jpg" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="nombreFigura">
-                                    <h3>{{products.name}}</h3>
-                                    <h2>Precio</h2>
-                                    <h3>{{products.price}} €</h3>
-                                </div>
-                            </div>
-                        </div>
-                  <div class="infoProduct">
-                      soy la info :v
-                  </div>
-                  <div class="linkYComprar">
-                      <div class="link">
-                          <div class="ope">
-                              <h3>Relacionado:</h3>
-                          </div>
-                          <div class="wrapperLinks">
-                              <p class="pOpening">
-                                  <a class="efectoLinea" target="_blank" href="https://www.youtube.com/watch?v=Lb3Q5WwogFg&ab_channel=Emmasmackedraylikeahoe">
-                                      - Videojuego -<br />
-                                      Instalar desde la página oficial
-                                  </a>
-                              </p>
-                          </div>
-                      </div>
-                      <div class="comprar">
-                          <img id="demo2" class="img coin" src="../images/coin.gif" alt="">
-                          <div class="button">
-                              <input class="boton" id="demo" type="button" value="Add to cart" onclick="clickando();this.disabled=true; this.value='Successful !';">
-                          </div>
-                          <img id="demo3" class="img maaaario" src="../images/mariojumppng.png" alt="">
-                      </div>
-                  </div>
-              </div>
+            <div class="comprar">
+                <router-link :to="{ name: 'Cart', params: { id: product.id} }">
+                <b-button class="boton">
+                  <h1>Comprar</h1>
+                </b-button>
+                </router-link>
+            </div>
           </div>
-      </div>
+        </div>
       <div class="recommendations" style="padding-top: 50px;">
           <p style="color: red;">R</p>
           <p style="color: rgb(55, 185, 16);">e</p>
@@ -161,21 +113,9 @@ hola majo
           </div>
       </div>
     </div>
-  </div>
-  </div>
-  -->
-<br>
-    <div v-if="product">
-        <h1>{{product.name}}</h1>
-        <h1>{{product.price}}</h1>
-        <img :src="product.urlImg" alt="">
-    </div>
-  adios
 </template>
 
 <script>
-
-//import axios from 'axios';
 export default {
     props: ['id'],
     data(){
@@ -187,213 +127,51 @@ export default {
         fetch("https://localhost:44330/api/Products/" + this.id)
         .then(res => res.json())
         .then(data => this.product = data)
-
-        
     }
-
 }
-
 </script>
-
-<!--
-
-
-
-
-  created() {
-      fetch('https://localhost:44330/api/Products')
-        .then(result => result.json())
-        .then(data => this.products = data)
-    },
-    data() {
-    return {
-      products: [],
-      data: []
-    };
-  },
-  methods: {
-    viewProduct(product){
-      this.product = product
-      this.active.product_drawer = true;
-      console.log(this.product);
-    },
-    closeProductDrawer(){
-      this.active.product_drawer = false;
-    },
-    getProduct(id){
-      let data = fetch('https://localhost:44330/api/Products/' + id)
-      .then(response=> response.json())
-      .then(data=> data.filter(product=> product.id == id))
-      .then(data=> {
-          if(data.length > 0){
-              return data[0]
-          }else{
-              return null
-          }
-      })
-      return data
-
-    }
-  },
-  asyncComputed:{
-    async quantity(){
-      let p = await this.getProduct(this.product.id)
-      console.log(p);
-      return p.quantity
-    }       
-  },
-  computed:{
-    rows() {
-        return this.items.length
-      },
-    actualItems(){
-      return this.items.slice(this.currentPage*6 -6, this.currentPage*6)
-    }
-  }
-
--->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 <style>
-body {
-    font-family: 'New Super Mario Font U', sans-serif;
+.rowListProducts {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.columnaListProducts {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+.productito{
+  margin: 0 auto;
+  padding-top: 50px;
+  box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  height: 500px;
+  width: 60%;
+}
+
+.imgenProductito{
+    box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    height: 400px;
+    margin-left: 20px;
+}
+
+.descripcionProductito{
+    width: 80%;
     margin: 0 auto;
-    background-color: rgb(250, 250, 250);
+    margin-bottom: 60px;
 }
 
-header {
-    z-index: 30;
-}
-
-main {
-    z-index: 4;
-}
-
-
-/* NAV MENU HEADER */
-
-.hamburger-menu h1 {
-    margin-left: 250px;
-    margin-top: 30px;
-    font-size: 25px;
-    text-shadow: 2px 0 0 white, -2px 0 0 white, 0 2px 0 white, -2px 0 white, 1px 1px white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white;
-}
-
-#menu__toggle {
-    opacity: 0;
-}
-
-#menu__toggle:checked+.menu__btn>span {
-    transform: rotate(45deg);
-}
-
-#menu__toggle:checked+.menu__btn>span::before {
-    top: 0;
-    transform: rotate(0deg);
-}
-
-#menu__toggle:checked+.menu__btn>span::after {
-    top: 0;
-    transform: rotate(90deg);
-}
-
-#menu__toggle:checked~.menu__box {
-    right: 0 !important;
-}
-
-.menu__btn {
-    position: fixed;
-    top: 75px;
-    left: 87%;
-    width: 26px;
-    height: 26px;
-    cursor: pointer;
-    z-index: 1;
-}
-
-.menu__btn>span,
-.menu__btn>span::before,
-.menu__btn>span::after {
-    display: block;
-    position: absolute;
-    right: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #000000;
-    transition-duration: .25s;
-}
-
-.menu__btn>span::before {
-    content: '';
-    top: -8px;
-}
-
-.menu__btn>span::after {
-    content: '';
-    top: 8px;
-}
-
-.menu__box {
-    position: absolute;
-    right: -300px;
-    width: 250px;
-    border: 1px solid #000;
-    margin: 0;
-    padding: 20px 0;
-    list-style: none;
-    background-color: #2d97dd;
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
-    transition-duration: 0.25s;
-}
-
-.menu__item {
-    display: block;
-    padding: 12px 24px;
-    font-size: 25px;
-    font-weight: 600;
-    text-decoration: none;
-    transition-duration: .25s;
-    text-shadow: 1px 0 0 rgb(255, 255, 255), -1px 0 0 rgb(255, 255, 255), 0 1px 0 rgb(255, 255, 255), 0 -1px 0 rgb(255, 255, 255), 1px 1px rgb(255, 255, 255), -1px -1px 0 rgb(255, 255, 255), 1px -1px 0 rgb(255, 255, 255), -1px 1px 0 rgb(255, 255, 255);
-}
-
-.VideoPane-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    height: auto;
-    min-height: 100%;
-    min-width: 100%;
-    width: auto
-}
-
-.VideoPane-content {
-    position: relative;
-    z-index: 0
-}
-
-
-/* FIN MENU HEADER */
 
 #myVideo {
     right: 0;

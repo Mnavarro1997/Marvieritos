@@ -7,13 +7,13 @@
           <img class="imgenCategoriaa" :src="product.urlImg" alt="">
           <p><b>{{product.name}} - {{product.price}}€</b></p>
           <div class="divVerProductos">
-            <router-link :to="{ name: 'Product', params: { id: product.id} }">
               <div class="comprar">
+                <router-link :to="{ name: 'Product', params: { id: product.id} }">
                 <b-button class="boton">
                   <h1>Detalles</h1>
                 </b-button>
+                </router-link>
               </div>
-            </router-link>  
           </div>
         </div>
         <hr>
