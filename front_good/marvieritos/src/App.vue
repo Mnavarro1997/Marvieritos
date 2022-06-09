@@ -1,7 +1,7 @@
 <template>
   <div id="nav">
       <header>
-        <nav id="navArea" style="margin-top: 30px;">
+        <nav id="navArea">
             <div class="titulo">
                 <p style="color: red;">M</p>
                 <p style="color: rgb(55, 185, 16);">a</p>
@@ -12,19 +12,7 @@
                 <p style="color: rgb(224, 221, 18);">r</p>
             </div>
             <div class="hamburger-menu">
-                <h1><router-link to="/">Home</router-link></h1>
-                <router-link :to="{ name: 'Home'}">Home2</router-link>
-                <input id="menu__toggle" type="checkbox">
-                <label class="menu__btn" for="menu__toggle">
-                    <span></span>
-                    </label>
-                <div class="menu__box">
-                    <p class="menu__item">Products: 2</p>
-                    <p class="menu__item">Discount: 5%</p>
-                    <p class="menu__item">Add</p>
-                    <p class="menu__item">Delete</p>
-                    <p class="menu__item">Total: 85€</p>
-                </div>
+                <h1><router-link to="/">Página principal</router-link></h1>
             </div>
         </nav>
     </header>
@@ -32,10 +20,62 @@
   <router-view/>
   <footer>
       <br>
-      <br><br><br>
-      https://www.instagram.com/marvier.sa/ == link de IG
+      <p>
+        ¿Te gustaría alguna categoría que no aparece o algún producto concreto?<br>
+        ¡ Mándanoslo y lo añadiremos !<br>
+      </p>
+      <input type="text" value="Artículo o categoría"> <input type="submit" value="Solicitar"><br>
+        <h3>
+            Y no te olvides de seguirnos en Instagram :)
+        </h3>
+        <a href="https://www.instagram.com/marvier.sa/">
+            <img style="height: 40px;" src="./images/Insta.svg.png" alt="IG">
+        </a>
+        
+      
+      
   </footer>
 </template>
+
+<script>
+export default {
+  created() {
+      fetch('https://localhost:44330/api/Products')
+        .then(result => result.json())
+        .then(data => this.products = data)
+    },
+    data() {
+    return {
+      products: [],
+      data: []
+    };
+  },
+  methods: {
+    viewProduct(product){
+      this.product = product
+      this.active.product_drawer = true;
+      console.log(this.product);
+    },
+    closeProductDrawer(){
+      this.active.product_drawer = false;
+    },
+    getProduct(id){
+      let data = fetch('https://localhost:44330/api/Products/' + id)
+      .then(response=> response.json())
+      .then(data=> data.filter(product=> product.id == id))
+      .then(data=> {
+          if(data.length > 0){
+              return data[0]
+          }else{
+              return null
+          }
+      })
+      return data
+
+    }
+  }
+}
+</script>
 
 <style>
 #app {
@@ -61,16 +101,14 @@
 body {
     font-family: 'New Super Mario Font U', sans-serif;
     margin: 0 auto;
-    background-color: rgb(250, 250, 250);
+    width: 90%;
 }
 
 header {
     z-index: 30;
 }
 
-main {
-    z-index: 4;
-}
+
 
 
 /* NAV MENU HEADER */
@@ -184,18 +222,6 @@ main {
     min-height: 100%;
 }
 
-.marines {
-    background-image: url('./images/SpaceMarines2/wallpaperSM.jpg');
-    background-repeat: no-repeat;
-    background-size: auto;
-}
-
-.nier {
-    background-image: url('./images/NierAutomata/wallpaperNier.jpg');
-    background-repeat: no-repeat;
-    background-size: auto;
-}
-
 main {
     text-align: center;
     margin: 0 auto;
@@ -223,5 +249,10 @@ main {
     top: 0px;
     background-image: url('./images/fondo.jpg');
     box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.4);
+}
+
+footer h3{
+    color: rgb(255, 200, 0);
+    text-shadow: 1px 0 0 rgb(255, 0, 0);
 }
 </style>

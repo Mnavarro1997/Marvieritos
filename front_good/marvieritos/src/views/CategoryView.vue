@@ -1,66 +1,28 @@
 <template>
   <div class="home">
-    <div class="row">
-        <div class="column" v-for="product in products" :key="product.id">
-          <div class="producto">
-            <div class="wrapper">
-              <div>
-                <div class="divImagen" ng-repeat="a in modules">
-                  <div class="overlay">
-                      <div class="carrusel" style="display: flex">
-                          <img class="imgProductoHover" :src="product.urlImg" />
-                      </div>
-                  </div>
-                </div>
-              </div>
-            <div>
-            </div>
-          </div>
+
+    <div class='rowListProducts'>
+      <div class="columnaListProducts"
+        v-for="product in products" :key="product.id">
+        <div class="divEachProduct">
+          <img class="imgenCategoriaa" :src="product.urlImg" alt="">
+          <p><b>{{product.name}} - {{product.price}}€</b></p>
           <div class="divVerProductos">
-            <router-link :to="{ name: 'Product', params: { id: product.id } }">
+            <router-link :to="{ name: 'Product', params: { id: product.id} }">
               <div class="comprar">
                 <b-button class="boton">
-                  <h1>Detalles </h1>
-                  <img class="imgenNovedad" :src="product.urlImg" alt="">
-                <p><b>{{product.name}} - {{product.price}}€</b></p>
+                  <h1>Detalles</h1>
                 </b-button>
               </div>
             </router-link>  
           </div>
         </div>
+        <hr>
       </div>
     </div>
+
   </div>
 </template>
-      <!--
-    <div class="listadoProducto">
-      <div class="producto" v-for="product in products" :key="product.id">
-        <div class="imgProducto">
-          <img v-bind:src="product.urlImg">
-          
-        </div>
-        <div class="datosProducto">
-          <h1>{{product.name}}</h1><br/>
-          <h2>{{product.price}}€</h2>
-          <router-link :to="{ name: 'Carts' }">
-          <b-button
-                    @click="anadirCarrito(product.id, product.name, product.price)"
-                    style="
-                      width: 40%;
-                      margin-left: 13%;
-                      background-color: purple;
-                      color: white;">
-                    <b>Añadir</b>
-            </b-button>
-            <b-button class="botonDetalles">
-              Detalles
-            </b-button>
-          </router-link>
-        </div>
-      </div>
-    </div>
-    -->
-
 
 <script>
 
@@ -121,6 +83,34 @@ export default {
 
 
 <style>
+.rowListProducts {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.columnaListProducts {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+.divEachProduct{
+  padding-top: 50px;
+  box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  height: 350px;
+  width: 300px;
+}
+
+.imgenCategoriaa{
+  height: 150px;
+}
+
 .column {
   float: left;
   margin-left: 40px;

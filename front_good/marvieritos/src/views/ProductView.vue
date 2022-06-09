@@ -1,36 +1,36 @@
 <template>
-  <div class="home">
-      sdafdsañklfnajsdkfnjkasdfbnkjsadfbdsahjfbdashjbfas
-      
-    <div class="product"  style= "background-color: grey"> 
-    <div>
-      <span style="color: white; font-size: 30px">
-        <b> Productos</b>
-      </span>
-        <div class="cuerpo" style="margin-top: 20px;">
-          <div class="productoYvideo">
-              <div class="producto">
-                  <div class="wrapper">
-                      <div>
-                          <div class="divImagen" ng-repeat="a in modules">
-                              <img class="imgProducto imgPro" src="../images/LeagueOfLegends/figuraA.jpg" />
-                              <div class="overlay">
-                                  <div class="carrusel" style="display: flex">
-                                      <img class="imgProductoHover" src="../images/LeagueOfLegends/figuraA.jpg" />
-                                      <img class="imgProductoHover" src="../images/LeagueOfLegends/figuraB.jpg" />
-                                      <img class="imgProductoHover" src="../images/LeagueOfLegends/figuraC.jpg" />
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div>
-                          <div class="nombreFigura">
-                              <h3>{{products.name}}</h3>
-                              <h2>Precio</h2>
-                              <h3>{{products.price}} €</h3>
-                          </div>
-                      </div>
-                  </div>
+  <div class="home">      
+    <div class="product"> 
+        <div>
+            <div class="column" v-for="product in products" :key="product.id">
+                <h3>{{product.name}}</h3>
+                <h2>Precio</h2>
+                <h3>{{product.price}} €</h3>
+            </div>
+            <div class="cuerpo">
+                <div class="productoYvideo">
+                    <div class="producto">
+                        <div class="wrapper">
+                            <div>
+                                <div class="divImagen" ng-repeat="a in modules">
+                                    <img class="imgProducto imgPro" src="../images/LeagueOfLegends/figuraA.jpg" />
+                                    <div class="overlay">
+                                        <div class="carrusel" style="display: flex">
+                                            <img class="imgProductoHover" src="../images/LeagueOfLegends/figuraA.jpg" />
+                                            <img class="imgProductoHover" src="../images/LeagueOfLegends/figuraB.jpg" />
+                                            <img class="imgProductoHover" src="../images/LeagueOfLegends/figuraC.jpg" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="nombreFigura">
+                                    <h3>{{products.name}}</h3>
+                                    <h2>Precio</h2>
+                                    <h3>{{products.price}} €</h3>
+                                </div>
+                            </div>
+                        </div>
                   <div class="infoProduct">
                       soy la info :v
                   </div>

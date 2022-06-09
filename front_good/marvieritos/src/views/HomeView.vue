@@ -1,5 +1,5 @@
 <template>
-  <div class="home"> 
+  <div class="home">
     <h1>♥ Novedades ♥</h1>
     <div class="novedades">
       <div v-for="product in products" :key="product.id">
@@ -15,25 +15,26 @@
     </div>
     <div class="divVerProductos">
       <router-link :to="{ name: 'Category'}">
-      <div class="comprar">
-        <b-button class="boton">
-          <h1>Ver productos</h1>
-        </b-button>
-      </div>
-    </router-link>  
+        <div class="comprar">
+          <b-button class="boton">
+            <h1>Ver productos</h1>
+          </b-button>
+        </div>
+      </router-link>  
     </div>
-      
-    <div>
-      <div class="row">
-        <div class="column"
-          v-for="category in categories"
-          :key="category.id">
-          <div class="categoria">
-            <img class="imgenCategoria" :src="category.description" alt="">
-          </div>
+
+    <div class='rowa'>
+      <div class="columna"
+        v-for="category in categories"
+        :key="category.id">
+        <div class="hola">
+          <img class="imgenCategoria" :src="category.description" alt="">
         </div>
       </div>
     </div>
+
+
+
   </div>
 </template>
 
@@ -59,8 +60,35 @@ export default {
 </script>
 
 <style>
+
+.rowa {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 50px;
+  height: 700px;
+}
+
+.columna {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+.imgenCategoriaa{
+  border-radius: 5px;
+  box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
 .comprar {
   width: 210px;
+  box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.2);
   height: 56px;
   margin: 0 auto;
   background-image: url('../images/fondoBotonLadrillos.jpg');
@@ -77,13 +105,6 @@ export default {
   vertical-align: middle;
   line-height: 56px;
 }
-
-
-
-
-
-
-
 
 .divVerProductos{
   padding-top: 50px;
@@ -104,6 +125,9 @@ export default {
 }
 
 .novedad{
+  padding: 15px;
+  box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 7px;
   margin-left: 50px;
 }
 
@@ -129,17 +153,16 @@ export default {
   border-radius: 5px;
   box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.2);
 }
-
-.column {
-  float: left;
-  width: 50%;
+.hi{
+  width: 80%;
+  margin: 0 auto;
 }
 
 /* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  
 }
 
 </style>
