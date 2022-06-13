@@ -1,5 +1,5 @@
 <template>
-<h1>LOGEATE ESTA</h1>
+<h1>LOGEATE ESTA Y LA OTRA</h1>
 <div class="login">
   <input type="text" v-model = "email" placeholder="Introduce email"/>
   <input type="password" v-model = "password" placeholder="Introduce contraseña"/>
