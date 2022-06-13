@@ -583,3 +583,4 @@ C:\Users\G1\OneDrive\Escritorio\Nueva carpeta\Marvieritos\MarvieritosApp\Marvier
 C:\Users\G1\OneDrive\Escritorio\Nueva carpeta\Marvieritos\MarvieritosApp\MarvieritosApp\obj\Debug\net5.0\MarvieritosApp.pdb
 C:\Users\G1\OneDrive\Escritorio\Nueva carpeta\Marvieritos\MarvieritosApp\MarvieritosApp\obj\Debug\net5.0\MarvieritosApp.genruntimeconfig.cache
 C:\Users\G1\OneDrive\Escritorio\Nueva carpeta\Marvieritos\MarvieritosApp\MarvieritosApp\obj\Debug\net5.0\ref\MarvieritosApp.dll
+C:\Users\G1\OneDrive\Escritorio\MARVIERITOS\Marvieritos\MarvieritosApp\MarvieritosApp\bin\Debug\net5.0\MarvieritosApp.StaticWebAssets.xml
