@@ -26,7 +26,13 @@
                 </router-link>
             </div>
     </form>
-
+<div class="comprar">
+                <router-link :to="{ name: 'Registro' }">
+                <b-button class="bt">
+                  <h1>Crear Cuenta</h1>
+                </b-button>
+                </router-link>
+            </div>
 </body>
 
 </template>
