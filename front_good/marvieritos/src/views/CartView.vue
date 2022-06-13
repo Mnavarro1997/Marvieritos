@@ -1,30 +1,16 @@
 <template>
+  <div class="cart">
     <div class="contenidoCart">
-      <div>
-      <h1>Gracias por su compra</h1>
-      </div>
-      <div>
-<img src="../images/coin.gif" alt="" style="height: 60px;">
-      </div>
-      <div>
-<img src="../images/mariojumppng.png" alt="" style="height: 150px;">
-      </div>
-    
-    
+
+        <b>Gracias por su compra</b>
+
 
     </div>
+  </div>
 </template>
 <style>
 .contenidoCart{
- height: 569px;
- text-align: center;
-}
-
-@media only screen and (max-width: 600px) {
-body{
-    width: 100%;
-}
-
+ height: 500px;
 }
 </style>
 <script>

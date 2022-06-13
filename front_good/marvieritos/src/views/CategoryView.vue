@@ -1,4 +1,6 @@
 <template>
+  <div class="home">
+
     <div class='rowListProducts'>
       <div class="columnaListProducts" v-for="product in products" :key="product.id" v-on:click="editar(product.id)">
         <div class="divEachProduct">
@@ -17,6 +19,8 @@
         <hr>
       </div>
     </div>
+
+  </div>
 </template>
 
 <script>
@@ -83,12 +87,18 @@ export default {
 <style>
 .rowListProducts {
   display: flex;
-  justify-content: space-around;
-  text-align: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 20px;
 }
 
 .columnaListProducts {
-margin-top: 30px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
 }
 
 .divEachProduct{

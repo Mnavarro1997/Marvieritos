@@ -2,6 +2,7 @@ import ProductView from '../views/ProductView.vue'
 import HomeView from '../views/HomeView.vue'
 import CartView from '../views/CartView.vue'
 import CategoryView from '../views/CategoryView.vue'
+import UserView from '../views/UserView.vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 
@@ -15,6 +16,11 @@ const routes = [
     path: '/cart',
     name: 'Cart',
     component: CartView
+  },
+  {
+    path: '/users',
+    name: 'User',
+    component: UserView
   },
   {
     path: '/product/:id', 
